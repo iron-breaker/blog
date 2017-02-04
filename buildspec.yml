@@ -12,6 +12,7 @@ phases:
       - wget $RedPenURL
       - mkdir redpen
       - tar -xvf $RedPenFile -C redpen --strip-components 1
+      - apt-get update
       - apt-get install language-pack-ja -y
       - export LANG=ja_JP.UTF
   pre_build:
