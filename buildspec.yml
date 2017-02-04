@@ -1,0 +1,23 @@
+version: 0.1
+
+environment_variables:
+  plaintext:
+    RedPenURL: "https://github.com/redpen-cc/redpen/releases/download/redpen-1.7.6/redpen-1.7.6.tar.gz"
+
+phases:
+  install:
+    commands:
+      - echo "Starting install"
+      - wget $RedPenURL
+      - RedPenPath=`basenam $RedPenURL`
+      - tar xvf $RedPenPath
+      - export PATH=$PWD/$RedPenPath/bin:$PATH
+  pre_build:
+    commands:
+      - echo "Skipping pre_build..."
+  build:
+    commands:
+      - redpen -f markdown -l 0 *.md
+  post_build:
+    commands:
+      - echo "Skipping post_build..."
