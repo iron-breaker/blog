@@ -10,8 +10,8 @@ phases:
       - echo "Starting install"
       - wget $RedPenURL
       - export RedPenFile=`echo ${RedPenURL##*/}`
-      - mkdir ./redpen
-      - tar xvf $RedPenFile -C ./redpen --strip-components 1
+      - mkdir redpen
+      - tar xvf $RedPenFile
       - export PATH=$PWD/redpen/bin:$PATH
   pre_build:
     commands:
