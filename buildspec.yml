@@ -11,7 +11,7 @@ phases:
       - wget $RedPenURL
       - export RedPenFile=`echo ${RedPenURL##*/}`
       - mkdir redpen
-      - tar --help
+      - ls
       - tar -xvf $RedPenFile -C redpen --strip-components 1
       - export PATH=$PWD/redpen/bin:$PATH
   pre_build:
