@@ -9,15 +9,16 @@ phases:
     commands:
       - echo "Starting install"
       - wget $RedPenURL
-      - RedPenPath=`basenam $RedPenURL`
-      - tar xvf $RedPenPath
-      - export PATH=$PWD/$RedPenPath/bin:$PATH
+      - RedPenFile=`echo ${RedPenURL##*/}`
+      - mkdir redpen
+      - tar xvf $RedPenFile -C redpen --strip-components 1
+      - export PATH=$PWD/redpen/bin:$PATH
   pre_build:
     commands:
       - echo "Skipping pre_build..."
   build:
     commands:
-      - redpen -f markdown -l 0 *.md
+      - redpen -c redpen/conf/redpen-conf-ja.xml -f markdown -l 0 *.md
   post_build:
     commands:
       - echo "Skipping post_build..."
