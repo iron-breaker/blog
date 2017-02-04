@@ -12,12 +12,14 @@ phases:
       - wget $RedPenURL
       - mkdir redpen
       - tar -xvf $RedPenFile -C redpen --strip-components 1
+      - apt-get install language-pack-ja -y
+      - export LANG=ja_JP.UTF
   pre_build:
     commands:
       - echo "Skipping pre_build..."
   build:
     commands:
-      - redpen/bin/redpen -c redpen/conf/redpen-conf-ja.xml -f markdown -l 30 *.md
+      - redpen/bin/redpen -c redpen/conf/redpen-conf-ja.xml -f markdown -l 0 *.md
   post_build:
     commands:
       - echo "Skipping post_build..."
