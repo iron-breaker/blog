@@ -3,23 +3,21 @@ version: 0.1
 environment_variables:
   plaintext:
     RedPenURL: "https://github.com/redpen-cc/redpen/releases/download/redpen-1.7.6/redpen-1.7.6.tar.gz"
+    RedPenFile: "redpen-1.7.6.tar.gz"
 
 phases:
   install:
     commands:
       - echo "Starting install"
       - wget $RedPenURL
-      - export RedPenFile=`echo ${RedPenURL##*/}`
       - mkdir redpen
-      - ls
-      - tar -xvf redpen-1.7.6.tar.gz -C redpen --strip-components 1
-      - export PATH=$PWD/redpen/bin:$PATH
+      - tar -xvf $RedPenFile -C redpen --strip-components 1
   pre_build:
     commands:
       - echo "Skipping pre_build..."
   build:
     commands:
-      - redpen -c redpen/conf/redpen-conf-ja.xml -f markdown -l 0 *.md
+      - redpen/bin/redpen -c redpen/conf/redpen-conf-ja.xml -f markdown -l 0 *.md
   post_build:
     commands:
       - echo "Skipping post_build..."
