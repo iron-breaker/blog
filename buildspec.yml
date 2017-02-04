@@ -9,7 +9,7 @@ phases:
     commands:
       - echo "Starting install"
       - wget $RedPenURL
-      - RedPenFile=`echo ${RedPenURL##*/}`
+      - export RedPenFile=`echo ${RedPenURL##*/}`
       - mkdir redpen
       - tar xvf $RedPenFile -C redpen --strip-components 1
       - export PATH=$PWD/redpen/bin:$PATH
