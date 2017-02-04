@@ -12,7 +12,7 @@ phases:
       - export RedPenFile=`echo ${RedPenURL##*/}`
       - mkdir redpen
       - ls
-      - tar -xvf $RedPenFile -C redpen --strip-components 1
+      - tar -xvf redpen-1.7.6.tar.gz -C redpen --strip-components 1
       - export PATH=$PWD/redpen/bin:$PATH
   pre_build:
     commands:
