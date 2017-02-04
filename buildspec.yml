@@ -17,7 +17,7 @@ phases:
       - echo "Skipping pre_build..."
   build:
     commands:
-      - redpen/bin/redpen -c redpen/conf/redpen-conf-ja.xml -f markdown -l 0 *.md
+      - redpen/bin/redpen -c redpen/conf/redpen-conf-ja.xml -f markdown -l 30 *.md
   post_build:
     commands:
       - echo "Skipping post_build..."
