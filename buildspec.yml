@@ -14,7 +14,8 @@ phases:
       - tar -xvf $RedPenFile -C redpen --strip-components 1
       - apt-get update
       - apt-get install language-pack-ja -y
-      - export LANG=ja_JP.UTF
+      - export LANG=ja_JP.UTF-8
+      - echo "あああああ"
   pre_build:
     commands:
       - echo "Skipping pre_build..."
